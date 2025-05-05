@@ -1,0 +1,71 @@
+<!-- templates/sobre.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre | Meu Blog Pessoal</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Meu Blog Pessoal</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sobre" class="active">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about-section">
+            <h2>Sobre Mim</h2>
+            
+            <p>
+                Olá! Meu nome é Affonso Helmuth, sou desenvolvedor de Software e estou atualmente 
+                cursando Sistemas de Informação.
+            </p>
+            
+            <p>
+                Este blog é um espaço onde compartilho meus conhecimentos, experiências e 
+                reflexões sobre desenvolvimento de software, tecnologia e outros assuntos 
+                relacionados à minha área de atuação.
+            </p>
+            
+            <div class="profile-info">
+                <h3>Formação</h3>
+                <ul>
+                    <li>Graduando em Sistemas de Informação</li>
+                </ul>
+                
+                <h3>Áreas de Interesse</h3>
+                <ul>
+                    <li>Desenvolvimento Web</li>
+                    <li>Programação Backend</li>
+                    <li>Arquitetura de Software</li>
+                    <li>Inteligência Artificial</li>
+                </ul>
+                
+                <h3>Habilidades</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>HTML/CSS</li>
+                    <li>FastAPI</li>
+                    <li>SQL</li>
+                    <li>Git</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{ year }} Meu Blog Pessoal. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

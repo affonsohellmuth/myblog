@@ -1,0 +1,87 @@
+<!-- templates/admin/dashboard.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Logged in as: {{ user.username }}</span>
+                <button id="logout-btn" class="btn btn-sm btn-ghost">Logout</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="admin-panel">
+            <aside class="sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active" data-section="posts">Posts</a></li>
+                        <li><a href="#" data-section="drafts">Drafts</a></li>
+                        <li><a href="#" data-section="new-post">New Post</a></li>
+                        <li><a href="#" data-section="settings">Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            
+            <div class="content">
+                <section id="posts" class="section active">
+                    <h2>Published Posts</h2>
+                    <div id="posts-list" class="list-container">
+                        <!-- Posts will be loaded here dynamically -->
+                        <p class="loading">Loading posts...</p>
+                    </div>
+                </section>
+                
+                <section id="drafts" class="section">
+                    <h2>Drafts</h2>
+                    <div id="drafts-list" class="list-container">
+                        <!-- Drafts will be loaded here dynamically -->
+                    </div>
+                </section>
+                
+                <section id="new-post" class="section">
+                    <h2>Create New Post</h2>
+                    <form id="post-form">
+                        <div class="form-group">
+                            <label for="post-title">Title</label>
+                            <input type="text" id="post-title" name="title" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="post-content">Content</label>
+                            <textarea id="post-content" name="content" rows="10" required></textarea>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="publish" name="is_published">
+                            <label for="publish">Publish immediately</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Post</button>
+                    </form>
+                </section>
+                
+                <section id="settings" class="section">
+                    <h2>Settings</h2>
+                    <!-- Settings content -->
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>

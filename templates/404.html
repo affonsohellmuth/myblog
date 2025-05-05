@@ -1,0 +1,38 @@
+<!-- templates/404.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada | Meu Blog Pessoal</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Meu Blog Pessoal</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card" style="text-align: center; padding: 3rem 2rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">404</h2>
+            <h3 style="margin-bottom: 1.5rem;">Página não encontrada</h3>
+            <p style="margin-bottom: 2rem;">Desculpe, a página que você está procurando não existe ou foi removida.</p>
+            <a href="/" class="btn btn-primary">Voltar para a página inicial</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{ year }} Meu Blog Pessoal. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

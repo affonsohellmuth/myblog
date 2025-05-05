@@ -1,0 +1,62 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog Pessoal</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Meu Blog Pessoal</h1>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <div class="card-content">
+                <h2>Bem-vindo ao meu blog!</h2>
+                <p>
+                    Este é um espaço onde compartilho meus conhecimentos, experiências e reflexões sobre 
+                    desenvolvimento de software, tecnologia e outros assuntos relacionados.
+                </p>
+            </div>
+        </section>
+
+        <section class="posts">
+            <h2>Posts Recentes</h2>
+            
+            {% if posts %}
+                {% for post in posts %}
+                <article class="post-card">
+                    <h3><a href="/post/{{ post.id }}">{{ post.title }}</a></h3>
+                    <div class="post-meta">
+                        <span>{{ post.created_at.strftime('%d/%m/%Y') }}</span>
+                    </div>
+                    <div class="post-excerpt">
+                        {{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}
+                    </div>
+                    <a href="/post/{{ post.id }}" class="read-more">Ler mais</a>
+                </article>
+                {% endfor %}
+            {% else %}
+                <p class="no-posts">Ainda não há posts publicados.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{ year }} Meu Blog Pessoal. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
