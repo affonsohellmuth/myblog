@@ -3,30 +3,32 @@
 /* Global Styles */
 :root {
     --background: #ffffff;
-    --foreground: #111111;
-    --primary: #3b82f6;
-    --primary-hover: #2563eb;
-    --secondary: #f3f4f6;
-    --secondary-foreground: #374151;
-    --muted: #f3f4f6;
-    --muted-foreground: #6b7280;
-    --accent: #f9fafb;
-    --accent-foreground: #111827;
+    --foreground: #292929;
+    --primary: #1a8917;
+    --primary-hover: #0f730c;
+    --secondary: #f9f9f9;
+    --secondary-foreground: #4a4a4a;
+    --muted: #f3f3f3;
+    --muted-foreground: #757575;
+    --accent: #fafafa;
+    --accent-foreground: #292929;
     --success: #10b981;
     --success-foreground: #064e3b;
     --warning: #f59e0b;
     --warning-foreground: #78350f;
     --danger: #ef4444;
     --danger-foreground: #7f1d1d;
-    --border: #e5e7eb;
-    --input: #e5e7eb;
-    --ring: #3b82f6;
-    --radius: 0.5rem;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --border: #e6e6e6;
+    --input: #e6e6e6;
+    --ring: #1a8917;
+    --radius: 0.25rem;
+    --font-sans: 'Charter', 'Georgia', serif;
+    --font-title: 'Sohne', 'Helvetica Neue', sans-serif;
+    --font-mono: 'SF Mono', 'Menlo', monospace;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
 * {
@@ -35,7 +37,8 @@
     padding: 0;
 }
 
-html {
+html, body {
+    height: 100%;
     scroll-behavior: smooth;
 }
 
@@ -44,21 +47,29 @@ body {
     line-height: 1.6;
     color: var(--foreground);
     background-color: var(--background);
-    font-size: 16px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .container {
     width: 100%;
-    max-width: 768px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 0 1rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 /* Header Styles */
 header {
     background-color: var(--background);
     border-bottom: 1px solid var(--border);
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -72,7 +83,8 @@ header .container {
 }
 
 header h1 {
-    font-size: 1.5rem;
+    font-family: var(--font-title);
+    font-size: 1.25rem;
     font-weight: 700;
     margin: 0;
 }
@@ -86,7 +98,9 @@ header nav ul {
 header nav ul li a {
     color: var(--foreground);
     text-decoration: none;
+    font-family: var(--font-title);
     font-weight: 500;
+    font-size: 0.9rem;
     transition: color 0.2s ease;
     position: relative;
 }
@@ -105,9 +119,16 @@ header nav ul li a.active::after {
     bottom: -4px;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 1px;
     background-color: var(--primary);
-    border-radius: 2px;
+}
+
+/* Main Content */
+main {
+    flex: 1 0 auto;
+    padding: 2rem 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 /* Button Styles */
@@ -116,6 +137,7 @@ header nav ul li a.active::after {
     align-items: center;
     justify-content: center;
     border-radius: var(--radius);
+    font-family: var(--font-title);
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
@@ -174,6 +196,7 @@ header nav ul li a.active::after {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
+    font-family: var(--font-title);
     font-weight: 500;
     color: var(--foreground);
 }
@@ -197,7 +220,7 @@ header nav ul li a.active::after {
 .form-group select:focus {
     outline: none;
     border-color: var(--ring);
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 0 0 2px rgba(26, 137, 23, 0.25);
 }
 
 .form-check {
@@ -213,29 +236,22 @@ header nav ul li a.active::after {
 /* Card Styles */
 .card {
     background-color: var(--background);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transform: translateY(-2px);
-}
-
-.card-header {
-    padding: 1.5rem;
+    padding: 1.5rem 0;
     border-bottom: 1px solid var(--border);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .card-content {
-    padding: 1.5rem;
+    padding: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-.card-footer {
-    padding: 1.5rem;
-    border-top: 1px solid var(--border);
+.card-content h2 {
+    font-family: var(--font-title);
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
 }
 
 /* Login Page Styles */
@@ -260,6 +276,7 @@ header nav ul li a.active::after {
 .login-container h1 {
     margin-bottom: 1.5rem;
     text-align: center;
+    font-family: var(--font-title);
     color: var(--foreground);
     font-weight: 700;
 }
@@ -302,7 +319,8 @@ header nav ul li a.active::after {
 }
 
 .admin-header h1 {
-    font-size: 1.5rem;
+    font-family: var(--font-title);
+    font-size: 1.25rem;
     font-weight: 700;
     margin: 0;
 }
@@ -342,6 +360,7 @@ header nav ul li a.active::after {
     display: block;
     padding: 0.75rem 1.5rem;
     color: var(--foreground);
+    font-family: var(--font-title);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s ease;
@@ -357,6 +376,8 @@ header nav ul li a.active::after {
 .content {
     flex: 1;
     padding: 1.5rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .section {
@@ -369,6 +390,7 @@ header nav ul li a.active::after {
 
 .section h2 {
     margin-bottom: 1.5rem;
+    font-family: var(--font-title);
     color: var(--foreground);
     font-weight: 700;
 }
@@ -383,6 +405,8 @@ header nav ul li a.active::after {
     align-items: center;
     padding: 1rem;
     border-bottom: 1px solid var(--border);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .list-item:last-child {
@@ -391,6 +415,10 @@ header nav ul li a.active::after {
 
 .list-item-title {
     font-weight: 600;
+    font-family: var(--font-title);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
 }
 
 .list-item-title a {
@@ -407,6 +435,7 @@ header nav ul li a.active::after {
 .list-item-actions {
     display: flex;
     gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 /* Blog Post Styles */
@@ -415,23 +444,20 @@ header nav ul li a.active::after {
 }
 
 .post-card {
-    background-color: var(--background);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.post-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transform: translateY(-2px);
+    padding: 2rem 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--border);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .post-card h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
     font-weight: 700;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .post-card h3 a {
@@ -457,11 +483,14 @@ header nav ul li a.active::after {
     margin-bottom: 1rem;
     color: var(--secondary-foreground);
     line-height: 1.7;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .read-more {
     color: var(--primary);
     text-decoration: none;
+    font-family: var(--font-title);
     font-weight: 500;
     font-size: 0.875rem;
     display: inline-flex;
@@ -485,50 +514,64 @@ header nav ul li a.active::after {
 }
 
 .post-full {
-    background-color: var(--background);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    padding: 2rem;
+    padding: 0;
     margin-bottom: 2rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .post-header {
     margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
     padding-bottom: 1.5rem;
 }
 
 .post-header h1 {
     margin-bottom: 0.75rem;
+    font-family: var(--font-title);
     color: var(--foreground);
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .post-content {
+    font-size: 1.125rem;
     line-height: 1.8;
     color: var(--foreground);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .post-content p {
     margin-bottom: 1.5rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .post-content h2 {
     margin-top: 2rem;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-family: var(--font-title);
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--foreground);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .post-content h3 {
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
-    font-size: 1.25rem;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--foreground);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .post-content ul, 
@@ -539,6 +582,8 @@ header nav ul li a.active::after {
 
 .post-content li {
     margin-bottom: 0.5rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .post-content pre {
@@ -549,6 +594,8 @@ header nav ul li a.active::after {
     margin-bottom: 1.5rem;
     font-family: var(--font-mono);
     font-size: 0.875rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .post-content code {
@@ -557,19 +604,44 @@ header nav ul li a.active::after {
     padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
     font-size: 0.875rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .post-content blockquote {
-    border-left: 4px solid var(--primary);
-    padding-left: 1rem;
+    border-left: 3px solid var(--primary);
+    padding-left: 1.5rem;
     margin-left: 0;
     margin-bottom: 1.5rem;
     color: var(--muted-foreground);
     font-style: italic;
 }
 
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+}
+
+.post-content a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 1px;
+}
+
+.post-content a:hover {
+    color: var(--primary-hover);
+    border-bottom-color: var(--primary-hover);
+}
+
 .post-navigation {
-    margin-top: 2rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
 }
@@ -577,6 +649,7 @@ header nav ul li a.active::after {
 .back-button {
     color: var(--primary);
     text-decoration: none;
+    font-family: var(--font-title);
     font-weight: 500;
     display: inline-flex;
     align-items: center;
@@ -600,24 +673,27 @@ header nav ul li a.active::after {
 
 /* About Page Styles */
 .about-section {
-    background-color: var(--background);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    padding: 2rem;
+    padding: 0;
     margin-bottom: 2rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .about-section h2 {
+    font-family: var(--font-title);
     color: var(--foreground);
     margin-bottom: 1.5rem;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 
 .about-section p {
     margin-bottom: 1.5rem;
+    font-size: 1.125rem;
     line-height: 1.8;
-    color: var(--secondary-foreground);
+    color: var(--foreground);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .profile-info {
@@ -625,6 +701,7 @@ header nav ul li a.active::after {
 }
 
 .profile-info h3 {
+    font-family: var(--font-title);
     color: var(--foreground);
     margin-bottom: 1rem;
     font-size: 1.25rem;
@@ -633,14 +710,16 @@ header nav ul li a.active::after {
 
 .profile-info ul {
     list-style: none;
-    margin-left: 1rem;
+    margin-left: 0;
     margin-bottom: 1.5rem;
 }
 
 .profile-info ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     position: relative;
     padding-left: 1.5rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .profile-info ul li::before {
@@ -653,12 +732,12 @@ header nav ul li a.active::after {
 
 /* Footer Styles */
 footer {
-    background-color: var(--accent);
+    background-color: var(--background);
     color: var(--foreground);
     padding: 2rem 0;
-    margin-top: 4rem;
     border-top: 1px solid var(--border);
     text-align: center;
+    flex-shrink: 0; /* Prevents the footer from shrinking */
 }
 
 footer p {
@@ -682,6 +761,7 @@ footer p {
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1;
+    font-family: var(--font-title);
 }
 
 .badge.success {
@@ -722,7 +802,7 @@ footer p {
     }
     
     .post-header h1 {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
     
     .list-item {

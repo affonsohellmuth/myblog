@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayUserInfo(user) {
         const userInfoEl = document.querySelector('.user-info span');
         if (userInfoEl && user) {
-            userInfoEl.textContent = `Logged in as: ${user.username}`;
+            userInfoEl.textContent = `Usuário: ${user.username}`;
         }
     }
     

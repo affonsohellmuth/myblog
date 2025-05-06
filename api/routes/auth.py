@@ -27,7 +27,6 @@ async def login_for_access_token(
 ):
     # Log para depuração
     print(f"Tentativa de login para: {form_data.username}")
-    print(f"Senha fornecida: {form_data.password}")
     print(f"Valor de ACCESS_TOKEN_EXPIRE_MINUTES: {ACCESS_TOKEN_EXPIRE_MINUTES}")
     
     # Autenticar usuário

@@ -26,9 +26,6 @@ SECRET_KEY = os.getenv("SECRET_KEY")  # Obter a chave do arquivo .env
 ALGORITHM = os.getenv("ALGORITHM", "HS256")  # Carregar o algoritmo com valor padrão, se necessário
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 30))  # Definir o tempo de expiração
 
-# Adicionando o print para verificar se a chave foi carregada corretamente
-print(f"SECRET_KEY: {SECRET_KEY}")  # Isso irá imprimir a chave carregada do .env
-
 # Instância para verificação de senha
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

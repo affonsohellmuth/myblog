@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Painel Administrativo</title>
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Admin Dashboard</h1>
+            <h1>Painel Administrativo</h1>
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
                 </ul>
             </nav>
             <div class="user-info">
-                <span>Logged in as: {{ user.username }}</span>
+                <span>Usuário: {{ user.username }}</span>
                 <button id="logout-btn" class="btn btn-sm btn-ghost">Logout</button>
             </div>
         </div>
@@ -29,16 +29,15 @@
                 <nav>
                     <ul>
                         <li><a href="#" class="active" data-section="posts">Posts</a></li>
-                        <li><a href="#" data-section="drafts">Drafts</a></li>
-                        <li><a href="#" data-section="new-post">New Post</a></li>
-                        <li><a href="#" data-section="settings">Settings</a></li>
+                        <li><a href="#" data-section="drafts">Rascunhos</a></li>
+                        <li><a href="#" data-section="new-post">Novo Post</a></li>
                     </ul>
                 </nav>
             </aside>
             
             <div class="content">
                 <section id="posts" class="section active">
-                    <h2>Published Posts</h2>
+                    <h2>Posts Publicados</h2>
                     <div id="posts-list" class="list-container">
                         <!-- Posts will be loaded here dynamically -->
                         <p class="loading">Loading posts...</p>
@@ -46,7 +45,7 @@
                 </section>
                 
                 <section id="drafts" class="section">
-                    <h2>Drafts</h2>
+                    <h2>Rascunhos</h2>
                     <div id="drafts-list" class="list-container">
                         <!-- Drafts will be loaded here dynamically -->
                     </div>
@@ -73,11 +72,7 @@
                         <button type="submit" class="btn btn-primary">Save Post</button>
                     </form>
                 </section>
-                
-                <section id="settings" class="section">
-                    <h2>Settings</h2>
-                    <!-- Settings content -->
-                </section>
+    
             </div>
         </div>
     </main>
