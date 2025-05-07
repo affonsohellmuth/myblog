@@ -51,57 +51,6 @@ my_blog/
 └── requirements.txt
 ```
 
-## Configuração
-
-1. Clone o repositório
-2. Crie um ambiente virtual:
-   ```
-   python -m venv venv
-   ```
-3. Ative o ambiente virtual:
-   - Windows: `venv\Scripts\activate`
-   - Linux/Mac: `source venv/bin/activate`
-4. Instale as dependências:
-   ```
-   pip install -r requirements.txt
-   ```
-5. Configure o arquivo `.env` com suas variáveis de ambiente:
-   ```
-   SECRET_KEY=sua_chave_secreta
-   ALGORITHM=HS256
-   ACCESS_TOKEN_EXPIRE_MINUTES=30
-   ADMIN_PASSWORD=sua_senha_admin
-   ```
-
-## Executando o Projeto
-
-Para executar o projeto em modo de desenvolvimento:
-
-```
-cd backend
-uvicorn main:app --reload
-```
-
-O servidor estará disponível em `http://localhost:8000`.
-
-## Deploy
-
-### Backend
-
-Para fazer o deploy do backend:
-
-1. Configure o servidor com as variáveis de ambiente necessárias
-2. Instale as dependências: `pip install -r requirements.txt`
-3. Execute o servidor:
-   ```
-   cd backend
-   uvicorn main:app --host 0.0.0.0 --port 8000
-   ```
-
-### Frontend
-
-O frontend pode ser servido diretamente pelo backend FastAPI, ou você pode configurar um servidor web como Nginx para servir os arquivos estáticos.
-
 ## Funcionalidades
 
 - Visualização de posts
