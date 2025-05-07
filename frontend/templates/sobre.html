@@ -1,0 +1,106 @@
+<!-- frontend/templates/sobre.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre | Affonso Helmuth</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/public.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Affonso Helmuth</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sobre" class="active">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about-section">
+            <h2>Sobre Mim</h2>
+            <p>
+                Desenvolvedor de software com experiência em Automação Robótica de Processos (RPA), Desenvolvimento Web e suporte técnico. 
+                Experiência com ferramentas de automação web e desktop usando Python, integração com APIs, além de habilidades sólidas com HTML, 
+                CSS e JavaScript para criação de landing pages e interfaces, também com prática em Banco de Dados SQL Server.
+            </p>
+
+            <p>
+                Este blog é um espaço onde compartilho conteúdos diversos, principalmente sobre tecnologia, além de outros assuntos do meu interesse.
+            </p>
+            
+            <div class="profile-info">
+
+                <h3>Formação Acadêmica</h3>
+                <ul>
+                    <li><strong>Sistemas de Informação</strong> | Universidade Estadual de Goiás (UEG) <br> <em>Curso em andamento</em></li>
+                </ul>
+                
+                <h3>Experiência Profissional</h3>
+                <ul>
+                    <li><strong>Desenvolvedor RPA</strong> - <em>Instituto Euvaldo Lodi (IEL)</em> <br> (Outubro de 2024 – Atual)</li>
+                    <ul>
+                        <li>Desenvolvimento de robôs com foco em automação web e desktop utilizando Selenium, Pywinauto, Pandas, OpenCV, Tesseract (OCR) e afins.</li>
+                        <li>Integração de automações com bancos de dados, sistemas ERP legados e modernos.</li>
+                        <li>Utilização de Git e boas práticas de organização modular de código.</li>
+                    </ul>
+
+                    <li><strong>Desenvolvedor Freelance</strong> <br> <em>Autônomo</em> (Março de 2025 – Atual)</li>
+                    <ul>
+                        <li>Criação de landing pages responsivas com HTML, CSS e JavaScript.</li>
+                    </ul>
+
+                    <li><strong>Suporte de TI</strong> - <em>HUGOL</em> <br> (Outubro de 2023 – Outubro de 2024)</li>
+                    <ul>
+                        <li>Atendimento ao usuário e manutenção de redes e infraestrutura.</li>
+                        <li>Administração de sistemas.</li>
+                        <li>Instalação e configuração de softwares e sistemas internos.</li>
+                    </ul>
+                </ul>
+
+                <h3>Habilidades Técnicas</h3>
+                <h4>Linguagens e Ferramentas</h4>
+                <ul>
+                    <li>Python, HTML, CSS, JavaScript, SQL, Git</li>
+                </ul>
+
+                <h4>Automação e RPA</h4>
+                <ul>
+                    <li>Selenium, Pywinauto, Requests, Pandas, OpenCV, Tesseract (OCR), Keyring, .env, Postman</li>
+                </ul>
+
+                <h4>Banco de Dados</h4>
+                <ul>
+                    <li>SQL Server e PostgreSQL – Modelagem de banco com modelo conceitual, técnico e afins, criação de tabelas, consultas, filtros, joins e integrações com automações</li>
+                </ul>
+
+                <h4>Desenvolvimento Web</h4>
+                <ul>
+                    <li>Landing pages responsivas com HTML/CSS/JS, boas práticas de layout e UI/UX</li>
+                </ul>
+
+                <h4>Ambientes</h4>
+                <ul>
+                    <li>Linux, Windows, ambientes virtuais (venv), Docker, Hostinger, Vercel</li>
+                </ul>
+
+                <h3>Social</h3>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/affonso-helmuth-972b50347" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com/affonsohellmuth" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{ year }} Affonso Helmuth. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

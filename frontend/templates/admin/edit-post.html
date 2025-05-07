@@ -1,0 +1,117 @@
+<!-- frontend/templates/admin/edit-post.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Post | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/admin.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Editar Post</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/admin">Dashboard</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span>Usuário: {{ user.username }}</span>
+                <button id="logout-btn" class="btn btn-sm btn-ghost">Logout</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="card">
+            <div class="card-content">
+                <h2>Editar Post</h2>
+                <form id="edit-post-form">
+                    <input type="hidden" id="post-id" value="{{ post.id }}">
+                    
+                    <div class="form-group">
+                        <label for="post-title">Título</label>
+                        <input type="text" id="post-title" name="title" value="{{ post.title }}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-content">Conteúdo</label>
+                        <textarea id="post-content" name="content" rows="15" required>{{ post.content }}</textarea>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="publish" name="is_published" {% if post.is_published %}checked{% endif %}>
+                        <label for="publish">Publicado</label>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                        <a href="/admin" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we have a token before loading admin content
+            const token = localStorage.getItem('access_token');
+            
+            if (!token) {
+                // No token found, redirect to login
+                window.location.href = '/admin/login';
+                return;
+            }
+            
+            // Handle logout
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function() {
+                    localStorage.removeItem('access_token');
+                    window.location.href = '/admin/login';
+                });
+            }
+            
+            // Handle form submission
+            const editForm = document.getElementById('edit-post-form');
+            if (editForm) {
+                editForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const postId = document.getElementById('post-id').value;
+                    const postData = {
+                        title: document.getElementById('post-title').value,
+                        content: document.getElementById('post-content').value,
+                        is_published: document.getElementById('publish').checked
+                    };
+                    
+                    try {
+                        const response = await fetch(`/api/admin/posts/${postId}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(postData)
+                        });
+                        
+                        if (response.ok) {
+                            alert('Post atualizado com sucesso!');
+                            window.location.href = '/admin';
+                        } else {
+                            const error = await response.json();
+                            alert(`Falha ao atualizar o post: ${error.detail || 'Erro desconhecido'}`);
+                        }
+                    } catch (error) {
+                        console.error('Erro ao atualizar post:', error);
+                        alert('Ocorreu um erro ao atualizar o post.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
