@@ -6,3 +6,7 @@ python_jose==3.4.0
 SQLAlchemy==2.0.38
 starlette==0.46.2
 uvicorn==0.34.2
+bcrypt==4.3.0
+email_validator==2.2.0
+pydantic_core==2.33.2
+python-multipart==0.0.20
