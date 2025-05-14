@@ -64,4 +64,4 @@ my_blog/
 
 - **Backend**: FastAPI, SQLAlchemy, Pydantic, JWT
 - **Frontend**: HTML, CSS, JavaScript
-- **Banco de Dados**: SQLite (desenvolvimento), PostgreSQL (produção)
+- **Banco de Dados**: PostgreSQL
